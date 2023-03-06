@@ -1,0 +1,7 @@
+#File to exclude sensitive files from being pushed to the remote repository
+
+#Node packages folder
+/node_modules
+
+#Environment variables
+.env
