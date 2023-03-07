@@ -15,7 +15,7 @@ const url = process.env.MONGODB_URL;
 const app = express();
 
 //Setting up middleware for JSON requests
-app.use(espress.json());
+app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 //Setting the server to listen to all requests
