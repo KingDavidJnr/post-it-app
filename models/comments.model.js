@@ -11,7 +11,9 @@ const commentsSchema = new Schema({
     commentsID: {
         type: ObjectId,
         required: true,
-    }
+    },
+
+    timestamps: true,
 });
 
 const Comments = new model("comments", commentsSchema);

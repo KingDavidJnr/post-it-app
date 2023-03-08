@@ -30,7 +30,9 @@ const userSchema = new Schema({
     userID: {
         type: ObjectId,
         required: true,
-    }
+    },
+
+    timestamps: true,
 });
 
 const User = new model("user", userSchema);

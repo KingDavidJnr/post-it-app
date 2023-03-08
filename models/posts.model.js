@@ -11,7 +11,9 @@ const postsSchema = new Schema({
     postID: {
         type: ObjectId,
         required: true,
-    }
+    },
+
+    timestamps: true,
 });
 
 const Post = new model("post", postSchema);
