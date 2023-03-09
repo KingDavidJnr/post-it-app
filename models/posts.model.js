@@ -13,8 +13,7 @@ const postsSchema = new Schema({
         required: true,
     },
 
-   // timestamps: true,
-});
+}, {timestamps: true});
 
 const Post = new model("post", postsSchema);
 module.exports = Post;

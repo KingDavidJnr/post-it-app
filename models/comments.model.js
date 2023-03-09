@@ -13,8 +13,7 @@ const commentsSchema = new Schema({
         required: true,
     },
 
-    //timestamps: true,
-});
+}, {timestamps: true});
 
 const Comments = new model("comments", commentsSchema);
 module.exports = Comments;
