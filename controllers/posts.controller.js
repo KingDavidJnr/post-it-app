@@ -3,13 +3,13 @@ const PostService = require('../services/posts.service');
 class PostsController {
     //Adding a new post
     async addPost(req, res) {
-        const {user_id, postMessage} = req.body;
+        const {post_id, post_content} = req.body;
 
         // Creates new post and sends a success message
         try {
          const newPost = await PostService.addPost({
-            post_id: req.body.user_id,
-            post_content: req.body.postMessage})
+            post_id: req.body.post_id,
+            post_content: req.body.post_content})
          res.status(200).send({
             success: true,
             message: "Post created successfully",
