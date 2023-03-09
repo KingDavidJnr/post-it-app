@@ -8,6 +8,9 @@ const res = require('express/lib/response');
 mongoose.set('strictQuery', true);
 const database = require('./config/database.config');
 const constants = require('./constants/constants');
+const Posts = require('./models/posts.model');
+const Users = require('./models/users.model');
+const Comments = require('./models/comments.model');
 
 //Linking access to .env file for database access
 require('dotenv').config();
@@ -20,28 +23,24 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-//Setting the server to listen to all requests
-app.use('/api/v1', homeRouter);
-app.use('/api/v1/posts', postsRouter, async () => {
-    console.log("View all recent posts");
-    const posts = await Posts.find().populate('posts');
-    res.status(200).send({
-        message: posts
-    });
-});
 
-app.use('/api/v1/users', userRouter, async () => {
-    console.log("View all users");
-    const users = await Users.find().populate('users');
-    res.status(200).send({
-        message: users
-    });
-});
+//Setting the server to listen to all Posts requests
+app.get('/posts', postsRouter)
+app.get('/posts/:id', postsRouter)
+app.post('/posts', postsRouter)
+app.put('/posts/:id', postsRouter)
+app.delete('/posts/:id', postsRouter)
 
-//Conncecting Server to the database
+//seting the server to listen to all User requests
+app.get('/users', userRouter)
+
+// Setting the server to listen to all Comments requests
+app.get('/posts/:id/comments', commentsRouter)
+
 
 const PORT = process.env.PORT || 8080;
 
+// Setting the server to stay up and running to process HTTP requests
 app.listen(PORT, () => {
     console.log("Server connected to Port", PORT);
     database();

@@ -1,11 +1,11 @@
 const Posts = require('../models/posts.model');
 
 class PostsService {
-    async createPost(post) {
+    async addPost(post) {
         return await Posts.create(post)
     }
 
-    async updatePost(id, data) {
+    async patchPost(id, data) {
         return await Posts.findByIdAndUpdate({_id: id}, data, {new: true})
     }
 
