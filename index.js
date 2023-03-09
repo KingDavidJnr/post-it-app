@@ -6,10 +6,12 @@ const postsRouter = require('./routes/posts.routes');
 const mongoose = require('mongoose');
 const res = require('express/lib/response');
 mongoose.set('strictQuery', true);
+const database = require('./config/database.config');
+const constants = require('./constants/constants');
 
 //Linking access to .env file for database access
 require('dotenv').config();
-const url = process.env.MONGODB_URL;
+const uri = process.env.MONGODB_URL;
 
 //Initializing the server app
 const app = express();
@@ -37,14 +39,10 @@ app.use('/api/v1/users', userRouter, async () => {
 });
 
 //Conncecting Server to the database
-mongoose.connect(url, {
-    dbName: "postItApp",
-    useNewUrlparser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log("Server connected to database"))
-.catch(err => console.log(err,':', err.message));
 
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => console.log("Server connected to Port", PORT));
+app.listen(PORT, () => {
+    console.log("Server connected to Port", PORT);
+    database();
+});

@@ -4,7 +4,7 @@ const commentsController = require('../controllers/comments.controller');
 const router = express.Router();
 
 //To post a new comment to a post
-router.post('/posts/:id/comments', commentsController.addComments);
+router.post('/posts/:id/comments', commentsController.addComment);
 
 // GET all comments under a post
 router.get('/posts/:id/comments', commentsController.getComments);

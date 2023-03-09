@@ -16,6 +16,6 @@ router.get('/users/:id', usersController.getUser);
 router.put('users/:id', usersController.patchUser);
 
 // DELETE: delete a user account
-router.delete('/users/:id', postsController.deletePost)
+router.delete('/users/:id', usersController.deleteUser)
 
 module.exports = router;

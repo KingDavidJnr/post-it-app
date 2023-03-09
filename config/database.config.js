@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
-const constants = require('./constants/constants');
+const constants = require('../constants/constants');
 const Url = "mongodb+srv://DavidOduse:David1996%40@cluster0.pl4a4kq.mongodb.net/?retryWrites=true&w=majority";
 
 const database = () => {

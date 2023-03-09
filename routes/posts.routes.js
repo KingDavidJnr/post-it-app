@@ -4,7 +4,7 @@ const postsController = require('../controllers/posts.controller');
 const router = express.Router();
 
 // POST: To create a new post
-router.post('/posts', postsController.addPosts);
+router.post('/posts', postsController.addPost);
 
 // GET: Fetch all posts
 router.get('/posts', postsController.getPosts);
